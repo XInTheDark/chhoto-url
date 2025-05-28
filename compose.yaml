@@ -17,7 +17,7 @@ services:
             # If you changed the "port" environment variable, adjust accordingly
             # The number AFTER the colon should match the "port" variable and the number
             # before the colon is the port where you would access the container from outside.
-            - 3003:3003
+            - ${PORT}:${PORT}
         environment:
             # Change if you want to mount the database somewhere else.
             # In this case, you can get rid of the db volume below
@@ -33,7 +33,7 @@ services:
             # site_url="https://www.example.com"   incorrect
             # site_url=https://www.example.com     correct
             # This is important to ensure Chhoto URL outputs the shortened link with the correct URL.
-            - site_url=https://go.muzhen.org
+            - site_url=${PASSWORD}
 
             # If you want to provided hashed password and API Key, uncomment the next line. Read the README
             # for instructions for the hashing. Make sure to escape $ by $$.
@@ -41,7 +41,7 @@ services:
 
             # Change this if you are running Chhoto URL on a port which is not 4567.
             # This is important to ensure Chhoto URL outputs the shortened link with the correct port.
-            - port=3003
+            - port=${PORT}
             
             - password=${PASSWORD}
 
